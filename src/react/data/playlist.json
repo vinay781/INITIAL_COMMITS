@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1111",
+    "url": "http://tunesliberia.betaplanets.com/wp-content/uploads/2020/05/Piano_brokencrash-Brandondorf-1164520478.mp3",
+    "title": "Test Music 1",
+    "artist": "test-music-1",
+    "artwork": "http://tunesliberia.betaplanets.com/wp-content/uploads/2020/05/iTunes-Logo-Header-1280x720-1.jpg",
+    "duration": 25
+  },
+  {
+    "id": "1112",
+    "url": "http://tunesliberia.betaplanets.com/wp-content/uploads/2020/05/Piano_brokencrash-Brandondorf-1164520478.mp3",
+    "title": "Test Music 2",
+    "artist": "test-music-2",
+    "artwork": "http://tunesliberia.betaplanets.com/wp-content/uploads/2020/05/iTunes-Logo-Header-1280x720-1.jpg",
+    "duration": 25
+  },
+  {
+    "id": "1113",
+    "url": "http://tunesliberia.betaplanets.com/wp-content/uploads/2020/05/Piano_brokencrash-Brandondorf-1164520478.mp3",
+    "title": "Test Music 3",
+    "artist": "test-music-3",
+    "artwork": "http://tunesliberia.betaplanets.com/wp-content/uploads/2020/05/iTunes-Logo-Header-1280x720-1.jpg",
+    "duration": 25
+  },
+  {
+    "id": "1114",
+    "url": "http://tunesliberia.betaplanets.com/wp-content/uploads/2020/05/Piano_brokencrash-Brandondorf-1164520478.mp3",
+    "title": "Test Music 4",
+    "artist": "test-music-4",
+    "artwork": "http://tunesliberia.betaplanets.com/wp-content/uploads/2020/05/iTunes-Logo-Header-1280x720-1.jpg",
+    "duration": 25
+  }  
+]
