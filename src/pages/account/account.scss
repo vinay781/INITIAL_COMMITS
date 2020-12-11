@@ -1,0 +1,180 @@
+page-account {
+	.toolbar-title-ios{ 
+		font-size: 2rem;
+	}
+	.scroll-content {
+    padding-top: 0 !important;
+}
+	.upload-photo{
+       background-color: color($colors, primary);
+			 position: relative;
+			 text-align: center;
+			 padding: 20px 0;
+       &.list-ios{
+       	margin: 0px -16px 16px;
+       }
+       &.list-md{
+       	margin: 0px -16px 16px;
+       }
+       .label {
+         margin: 0 0 10px;
+				}
+				.subtitle {
+					margin: 0px 0 5px;
+					padding: 0;
+					text-transform: capitalize;
+		   	}
+        ion-avatar{
+        $avatarHeight: 110px;
+        min-width: $avatarHeight;
+		    min-height: $avatarHeight;
+				text-align: center;
+				padding: 5px 0;
+		    img{
+		      width: $avatarHeight;
+              height: $avatarHeight;
+              margin: auto;
+              border: 1px solid color($colors, primary);
+              background-color: #fff;
+							padding: 2px;
+							box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.35);
+		    }
+        }
+	   .item {
+	    border: none !important;
+	    padding: 0;
+	    background-color: transparent;
+		    .item-inner{
+             border-bottom: none;
+             padding: 0;
+		    }
+	    }
+	    .pickup-photo{
+					position: absolute;
+					right: 0;
+					top: 20px;
+					padding-right: 16px;
+					z-index: 999;
+					width: auto;
+         .icon {
+         	background-color: color($colors, success);
+					color: #fff;
+					margin: 0 !important;
+					height: 2.8rem;
+					width: 2.8rem;
+					text-align: center;
+					border-radius: 50%;
+						&.icon-ios{
+								font-size: 2rem;
+							padding: 4px;
+						}
+						&.icon-md{
+								font-size: 1.75rem;
+							padding: 5px;
+						}
+          }
+	    }
+	}
+	.card {
+	       // box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+				 box-shadow: none;
+				 border-radius: 5px;
+	        margin: 0px 0px 3px;
+          width: 100%;
+            .text-input{
+            	margin: 0;
+            	width:100%;
+            }
+            .toggle-inner{
+            	background-color: color($colors, success);
+            }
+	        .item-textarea {
+	            min-height: 10.4rem;
+					 }
+					 &.notification {
+						box-shadow: none;
+					//	border-top: 2px solid #e8e8e8;
+						border-top: 0;
+						border-radius: 0;
+						//padding-top: 10px;
+						margin-bottom: 25px;
+						.icon {
+							margin-right: 5px;
+							position: relative;
+							top: 1px;
+					}
+				}
+	}
+	.button {
+	        // background-color:  color($colors, primary);
+	        color: color($colors, dark);
+	        height: 56px;
+	        border-radius: 50px;
+	        text-transform: capitalize;
+	        font-weight: 400;
+	        font-size: 16px;
+	        letter-spacing: 0.5px;
+	        width: 100%;
+					margin: 0 0 15px;
+					&.edit-account{
+						box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+					}
+	}
+	.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+    border-bottom-color:none;
+    box-shadow: none;
+    }
+    p.help-block {
+        padding: 0 16px;
+        color: color($colors, danger);
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, 
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom: none;
+    box-shadow: none;
+	 }
+	 
+	//  vote-post
+	.vote-post {
+    max-width: 165px;
+		margin: auto;
+		.col {
+			height: 30px;
+			padding: 0px 0 0;
+			margin-bottom: 5px;
+		}
+		p {
+			margin:0 0 3px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			&.small-text {
+				font-size: 12px !important;
+		  }
+		}
+	 .col:first-child {
+			border-right: 1px solid #000;
+	 }
+  }
+ion-toggle {
+   zoom:0.8;
+}
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md, .select-md .select-placeholder, .select-ios .select-placeholder, .item-input ion-label, .label-ios, .label-md, .text-input {
+	//color: #404042;
+	font-size: 1.9rem;
+}
+.placeholdercolor{
+	.text-input::-moz-placeholder {
+		color: #404042;
+	}
+	
+		.text-input:-ms-input-placeholder {
+		color: 0;
+	}
+	
+	 .text-input::-webkit-input-placeholder {
+		text-indent: 0;
+		color: #404042;
+	} 
+}
+}

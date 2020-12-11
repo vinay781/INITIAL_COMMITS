@@ -1,0 +1,9 @@
+
+<ion-tabs  tabsPlacement="top" [selectedIndex]="indexofvalue" #myTab style="  background-color:#ffc833 ;">
+  <ion-tab class="tabs" menuToggle (ionSelect)="showMenu()" tabIcon="menu" tabsHideOnSubPages="false"></ion-tab>
+  <ion-tab class="tabs" [root]="tab1Root" tabIcon="ios-home-outline" tabsHideOnSubPages="false" ></ion-tab>
+  <ion-tab class="tabs" [root]="tab3Root" tabIcon="ios-add-circle-outline" tabsHideOnSubPages="false"></ion-tab>
+  <ion-tab class="tabs" [root]="tab2Root" tabIcon="ios-chatboxes-outline" tabsHideOnSubPages="false"></ion-tab>
+  <!-- <ion-tab [root]="tab1Root" tabIcon="ios-home-outline"></ion-tab> -->
+  
+</ion-tabs>

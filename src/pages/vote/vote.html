@@ -1,0 +1,82 @@
+<!--
+  Generated template for the VotePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header *ngIf="!fromtabs">
+  <ion-navbar>
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>Vote</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <ion-grid>
+    <ion-row align-items-center >
+      <div class="user-name">
+        <ion-item>
+        <ion-avatar class="vote-img_center" item-start *ngIf="!(disputedata.is_anonymous=='1')" >
+          <img class="user-image" [src]="dispute_data.photo==undefined || dispute_data.photo.length<=0 ? 'assets/imgs/profile-placeholder.png' : imgBaseurl+dispute_data.photo">
+        </ion-avatar>
+        <h2 (click)="viewUserDispute()" *ngIf="!(disputedata.is_anonymous=='1')" >{{dispute_data.username}}</h2>
+        </ion-item>
+      </div>
+    <ion-col *ngIf="(disputedata.is_anonymous=='1')" style="height:40px" ></ion-col>
+    </ion-row>
+      <!-- <ion-label text-center><h4>{{dispute_data.heading}}</h4></ion-label> -->
+     <ion-row> <ion-label class="vote-heading">{{dispute_data.title}}</ion-label></ion-row>
+     <ion-row><img class="disputeimg" *ngIf="dispute_data.file !='' && dispute_data.file != 'null' " [src]="attechmentBaseUrl+dispute_data.file"  alt=""  onerror="this.style.display='none'"  >
+     </ion-row>
+     <ion-row> <ion-col>
+        <div class="vote-text" text-justify-left>
+        <span>{{dispute_data.description}}</span>
+      </div>
+    </ion-col></ion-row>
+      <!-- <ion-row><hr> </ion-row> -->
+     <ion-row style="margin-top:10px"> <div class="text-middle">
+      <!-- <span><strong>{{disputedata.dispute_que}}</strong></span>  -->
+      <!-- <span>Do you think {{dispute_data.username}} is right ?</span> -->
+      </div></ion-row>
+
+<ion-grid class="list-group">
+
+  <ion-list radio-group>
+<ion-row>
+    <ion-card class="select-field">
+      <ion-item>
+        <ion-radio name="yes" (ionSelect)="radiovalue('yes')"></ion-radio>
+        <ion-label class="radio-text">Yes</ion-label>
+      </ion-item>
+    </ion-card></ion-row>
+    <ion-row>
+    <ion-card class="select-field">
+      <ion-item>
+        <ion-radio name="no" (ionSelect)="radiovalue('no')"></ion-radio>
+        <ion-label class="radio-text">No</ion-label>
+      </ion-item>
+    </ion-card></ion-row>
+   <ion-row>
+    <ion-card class="select-field">
+      <ion-item>
+        <ion-radio  name="unsure" (ionSelect)="radiovalue('unsure')"></ion-radio>
+        <ion-label class="radio-text">Unsure</ion-label>
+      </ion-item>
+    </ion-card>
+</ion-row>
+  </ion-list>
+</ion-grid>
+
+  <form #userdispute_data="ngForm" (ngSubmit)="votedispute(userdispute_data.value)">
+   <ion-row> <ion-card>
+      <ion-item>
+        <ion-textarea placeholder="Add a comment(optional)" autocorrect="on" autocomplete="on" cols="12" rows="4" name="comment" ngModel></ion-textarea>
+      </ion-item>
+    </ion-card></ion-row>
+   <ion-row> <button ion-button class="vote-button" color="primary" type="submit" full>Submit</button>
+</ion-row>
+  </form>
+</ion-grid>
+</ion-content>

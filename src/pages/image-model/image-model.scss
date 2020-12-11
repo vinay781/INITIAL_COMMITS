@@ -1,0 +1,39 @@
+page-image-model {
+ion-content{
+    background-color: transparent !important;
+   // --background:rgba(44,49,48,0.84);
+}
+.scroll-content {
+   
+    display: flex;
+    align-items: center;
+    //padding: 0px 15px;
+}
+pinch-zoom{
+    height: 100% !important;
+    width: 100% !important;
+}
+.img-loaded + ion-spinner {
+    display:none;
+  }
+  ion-spinner * {
+    stroke: #ffc833;
+    fill: #ffc833 !important;
+    $spinner-ios-ios-color:#ffc833;
+    $spinner-md-ios-color	:#ffc833
+  }
+  // .center in my case to make the spinner at the center
+  .center{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+// img{
+//     height: 25px !important;
+//     width: 20px !important;
+// }
+// .pz-zoom-button.pz-zoom-control-position-bottom[_ngcontent-c0]{
+//     display: none;
+// }
+
+}

@@ -1,0 +1,95 @@
+<!--
+  Generated template for the UserDisputesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title> Disputes </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ <ion-card>
+  <ion-item no-lines>
+ 
+    <ion-select interface="popover" role="presentation" placeholder="Filter by category" (ionChange)="onCategorySelect($event);">
+      <ion-option *ngFor="let cate of category"  value="{{cate.name}}">{{cate.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+</ion-card>
+ <ion-list>
+<ion-card class="main-card"  *ngFor="let data of disputes_data">
+
+<ion-row>
+  <ion-col>
+    <ion-item class="tab1" no-lines no-padding>
+      <ion-avatar (click)="goforvote(data)" item-start no-padding no-margin>
+        <img [src]="data.userphoto==undefined || data.userphoto.length<=0 ? 'assets/imgs/profile-placeholder.png' : imgBaseurl+data.userphoto" >
+      </ion-avatar>
+      <ion-label col-sm-9 class="subtitle"><h5>{{data.username}}</h5>
+      </ion-label>
+      <ion-label item-end text-right *ngIf="data.votes == 1"><strong>{{data.votes}}</strong> Vote</ion-label>
+      <ion-label item-end text-right *ngIf="data.votes !=1" ><strong>{{data.votes}}</strong> Votes</ion-label>
+      <ion-label item-end text-right *ngIf="data.comments != 1" ><strong>{{data.comments}}</strong> Comments</ion-label>
+       <ion-label item-end text-right *ngIf="data.comments==1"><strong>{{data.comments}}</strong> Comment</ion-label>
+    </ion-item>
+  </ion-col>
+  <ion-col col-12 push-2>
+    <ion-item no-lines no-padding no-margin class="card-heading">
+      <ion-card-title (click)="goforvote(data)" class="left-heading" no-margin>{{data.title}}</ion-card-title>
+      <p class="category" end><span>{{data.category}}</span></p>
+    </ion-item>
+
+    <ion-card-content (click)="goforvote(data)" margin-bottom no-padding no-margin>
+      <p class="main_p">{{data.description}}</p>
+    </ion-card-content>
+    <img class="img-right" *ngIf="data.file !='' && data.file != 'null' " [src]="attechmentBaseUrl+data.file" (click)="showimg(attechmentBaseUrl+data.file)" />
+    <!-- <img class="img-right" *ngIf="data.file !='' && data.file != 'null' " [src]="attechmentBaseUrl+data.file" imageViewer/> -->
+  
+  </ion-col> 
+ <!-- card footer -->
+ <ion-row class="card-footer">
+   
+    <ion-col align-self-center text-center>
+        <button ion-button icon-start transparent clear small (click)="addToFave(data.disputeid)" *ngIf="!data.isfav" >
+          <ion-icon name="md-heart-outline"></ion-icon>
+          Favorite
+        </button>
+        <!-- if favorite -->
+        <button ion-button icon-start transparent clear small *ngIf="data.isfav" (click)="removetofav(data.disputeid)" >
+          <ion-icon name="heart" color="like"></ion-icon>
+          Favorite
+        </button>
+    </ion-col>
+
+    <ion-col align-self-center text-center>
+        <button class="card-footer-button" ion-button icon-start  clear small transparent (click)="goforvote(data)">
+        <img src="assets/vote.svg"/>
+          Vote now
+        </button>
+      
+    </ion-col>
+
+
+    <ion-col align-self-center text-center>
+        <button class="card-footer-button" ion-button icon-start  clear small transparent (click)="sharedispute(data.disputeid)">
+          <ion-icon name="md-share"></ion-icon>
+          Share
+        </button>
+      
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <ion-note class="hour">
+          <ion-icon name="md-clock"></ion-icon>
+          {{ getTimePassed(data.time,data.date)}}
+      </ion-note>
+    </ion-col>
+  </ion-row>
+</ion-row>
+
+</ion-card>
+</ion-list>
+</ion-content>

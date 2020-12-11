@@ -1,0 +1,133 @@
+<ion-header ion-fixed >
+
+  <ion-navbar>
+    <ion-title text-center>Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list class="upload-photo">
+    <ion-item class="pickup-photo" (click)="presentActionSheet()">
+      <ion-icon name="camera" item-end></ion-icon>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-avatar item-center>
+        <img  [src]="userData.photo.length<=0 ? 'assets/imgs/profile-placeholder.png': imageBaseUrl+userData.photo">
+      </ion-avatar>
+    </ion-item>
+
+    <ion-label col-sm-9 class="subtitle"><h5>{{userData.username}}</h5>
+        </ion-label>
+
+    <ion-row class="vote-post">
+      <ion-col col-6 *ngIf=" userData.disputecount ==1 " >
+          <P><strong>{{userData.disputecount}}</strong> </P>
+          <p class="small-text">POST</p>
+      </ion-col>
+      <ion-col col-6 *ngIf="userData.disputecount != 1 " >
+        <P><strong>{{userData.disputecount}}</strong> </P>
+        <p class="small-text">POSTS</p>
+    </ion-col>
+     <ion-col col-6 *ngIf="userData.votes == '1'" >
+          <P><strong>{{userData.votes}}</strong></P>
+           <p class="small-text">VOTE</p>
+        
+    </ion-col>
+    <ion-col col-6 *ngIf="userData.votes != '1' "  >
+      <P><strong>{{userData.votes}}</strong></P>
+       <p class="small-text">VOTES</p>
+    
+</ion-col>
+  </ion-row>
+
+
+  </ion-list>
+  <ion-grid>
+  
+  <form [formGroup]="mygroup">
+    <!-- <ion-card>
+      <ion-item no-lines *ngIf="buttonenable">
+        <ion-label>
+          <ion-icon name="person"></ion-icon>
+        </ion-label>
+        <ion-input type="text" [disabled]="buttonenable" [value]="userData.firstname"  placeholder="First & Last Name" ></ion-input>
+      </ion-item>
+
+      <ion-item no-lines *ngIf="!buttonenable" >
+        <ion-label>
+          <ion-icon name="person"></ion-icon>
+        </ion-label>
+        <ion-input type="text" class="placeholdercolor" [disabled]="buttonenable"  [placeholder]="userData.firstname" formControlName="firstname"></ion-input>
+      </ion-item>
+    </ion-card>
+    <p class="help-block" *ngIf="((firstname.hasError('pattern') && firstname.touched)|| (firstname.invalid && !firstname.hasError('required') ))&&   (!buttonenable) ">Enter valid First & Last Name</p> 
+      <p class="help-block" *ngIf="(firstname.touched && (firstname.invalid && firstname.hasError('required') ))&& (!buttonenable)">First & Last Name is Required</p> -->
+      <!-- fdfdfd -->
+          <ion-card>
+        <ion-item no-lines>
+          <ion-label>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input type="text" [disabled]="buttonenable" [value]="userData.firstname" placeholder="First Name" formControlName="firstname"></ion-input>
+        </ion-item>
+      </ion-card>
+      <p class="help-block" *ngIf="(firstname.hasError('pattern') && firstname.touched)|| (firstname.invalid && firstname.hasError('pattern') ) && (!buttonenable)">Enter Valid First Name</p> 
+      <p class="help-block" *ngIf="firstname.hasError('required') && firstname.touched || (firstname.invalid && firstname.hasError('required') ) && (!buttonenable)">First Name Required</p>
+      <!-- last name -->
+      <ion-card>
+        <ion-item no-lines>
+          <ion-label>
+            <ion-icon name="person"></ion-icon>
+          </ion-label>
+          <ion-input type="text" [disabled]="buttonenable" [value]="userData.lastname" placeholder="Last Name" formControlName="lastname"></ion-input>
+        </ion-item>
+      </ion-card>
+      <p class="help-block" *ngIf="(lastname.hasError('pattern') && lastname.touched)|| (lastname.invalid && lastname.hasError('pattern') ) && (!buttonenable)">Enter Valid Last Name</p> 
+      <p class="help-block" *ngIf="lastname.hasError('required') && lastname.touched || (lastname.invalid && lastname.hasError('required') ) && (!buttonenable)">Last Name Required</p>
+
+      <!-- last name -->
+ <!-- fdfdfd -->
+      <ion-card>
+        <ion-item no-lines>
+          <ion-label>
+            <ion-icon name="mail"></ion-icon>
+          </ion-label>
+          <ion-input type="text" [disabled]="buttonenable" [value]="userData.email=='' ? 'User email':userData.email " placeholder="Email" formControlName="email"></ion-input>
+        </ion-item>
+      </ion-card>
+      <p class="help-block" *ngIf="(email.hasError('pattern') && email.touched)|| (email.invalid && email.hasError('pattern') ) && (!buttonenable)">Enter valid email</p> 
+      <p class="help-block" *ngIf="email.hasError('required') && email.touched || (email.invalid && email.hasError('required') ) && (!buttonenable)">Email Required</p>
+     
+          <ion-card>
+      <ion-item  no-lines>
+        <ion-label>
+          <ion-icon name="calendar"></ion-icon>
+        </ion-label>
+        <ion-input type="text" disabled="true" value="{{date_1}}" placeholder="joining date"></ion-input>
+      </ion-item>
+    </ion-card >
+  
+    <ion-card class="notification" style="margin-bottom: 15px;" >
+      <ion-item no-lines>
+        <ion-label  >
+          <ion-icon name="notifications" ></ion-icon>
+           Notification
+        </ion-label>
+        <ion-toggle mode='ios' [checked]="userData.is_notify==1"  (ionChange)="notify()" name="notify" color="success" [disabled]="buttonenable"  ></ion-toggle>
+      </ion-item>
+    </ion-card>
+
+    <button ion-button full [disabled]="!mygroup.valid" *ngIf="!buttonenable" (click)="userupdate(mygroup.value)" class="edit-account" style="font-size:1.9rem" >Save Changes</button>
+    <button ion-button full *ngIf="buttonenable" (click)="editname()" icon-start style="font-size:1.9rem">
+        <ion-icon ios="ios-create" md="md-create"> </ion-icon>Edit
+    </button>
+
+    <button ion-button round outline (click)="changepassword()" class="change-password" style="font-size: 1.9rem;">Change Password</button>
+
+
+  </form>
+
+        
+</ion-grid>
+</ion-content>

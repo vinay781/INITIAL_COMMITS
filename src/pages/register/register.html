@@ -1,0 +1,121 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding color="primary">
+<ion-grid>
+  <ion-row class="top-row">
+    <ion-col>
+      <ion-card class="page-login ">
+        <img src="assets/logo.png">
+        <form [formGroup]="formgroup">
+          <ion-list class="no-border">
+              <ion-card class="text-space">
+                  <ion-item>
+                    <ion-label >
+                      <ion-icon class="icon-size"  ios="ios-person" md="md-person"></ion-icon>
+                    </ion-label>
+                    <!-- <ion-input required pattern="^([a-zA-Z]{1,}\\s[a-zA-z]{0,}'?-?[a-zA-Z]{1,}\\s?([a-zA-Z]{0,})?)" placeholder="First & Last Name" type="text" formControlName="firstname">
+                    </ion-input> -->
+                    <ion-input required pattern="^[a-zA-Z][a-zA-Z\\s]+$" placeholder="First Name" type="text" formControlName="firstname">
+                    </ion-input>
+                  </ion-item>
+                  <p class="help-block" *ngIf=" firstname.hasError('required') && firstname.touched ">First Name is Required</p>
+                  <p class="help-block" *ngIf=" firstname.hasError('pattern') && firstname.touched ">Enter valid First name</p>
+                </ion-card>
+
+                <ion-card class="text-space">
+                  <ion-item>
+                    <ion-label >
+                      <ion-icon class="icon-size"  ios="ios-person" md="md-person"></ion-icon>
+                    </ion-label>
+                    <!-- <ion-input required pattern="^([a-zA-Z]{1,}\\s[a-zA-z]{0,}'?-?[a-zA-Z]{1,}\\s?([a-zA-Z]{0,})?)" placeholder="First & Last Name" type="text" formControlName="firstname">
+                    </ion-input> -->
+                    <ion-input required pattern="^[a-zA-Z][a-zA-Z\\s]+$" placeholder="Last Name" type="text" formControlName="lastname">
+                    </ion-input>
+                  </ion-item>
+                  <p class="help-block" *ngIf=" lastname.hasError('required') && lastname.touched ">Last Name is Required</p>
+                  <p class="help-block" *ngIf=" lastname.hasError('pattern') && lastname.touched ">Enter valid Last name</p>
+                </ion-card>
+
+                <!-- <ion-card class="echotext-space">
+                    <ion-item>
+                      <ion-label >
+                        
+                        <ion-icon class="icon-size"  ios="ios-person" md="md-person"></ion-icon>
+                      </ion-label>
+                      <ion-input required pattern="^[a-zA-Z][a-zA-Z\\s]+$" placeholder="Lastname" type="text" formControlName="name">
+                      </ion-input>
+                    </ion-item>
+                    <p class="help-block" *ngIf=" lastname.hasError('required') && lastname.touched ">Last Name is Required</p>
+                    <p class="help-block" *ngIf=" lastname.hasError('pattern') && lastname.touched ">Enter valid last name</p>
+                  </ion-card> -->
+
+
+            <ion-card class="text-space">
+              <ion-item>
+                <ion-label >
+                  <ion-icon class="icon-size" name="contact"></ion-icon>
+                </ion-label>
+                <ion-input required pattern="^[a-zA-Z][a-zA-Z\\s]+$" placeholder="Username" type="text" formControlName="name">
+                </ion-input>
+              </ion-item>
+              <p class="help-block" *ngIf=" name.hasError('required') && name.touched ">Username is Required</p>
+              <p class="help-block" *ngIf=" name.hasError('pattern') && name.touched ">Enter valid Username</p>
+            </ion-card>
+
+            <ion-card class="text-space">
+              <ion-item>
+                <ion-label >
+                  <ion-icon class="icon-size" name="mail"></ion-icon>
+                </ion-label>
+                <ion-input required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,4}$" placeholder="Email" type="text" formControlName="email"></ion-input>
+              </ion-item>
+              <p class="help-block" *ngIf=" email.hasError('required') && email.touched ">Email is Required</p>
+            <p class="help-block" *ngIf=" email.hasError('pattern') && email.touched ">Enter valid Email </p>
+            </ion-card>
+            
+            <ion-card class="text-space">
+              <ion-item>
+                <ion-label >
+                  <ion-icon class="icon-size" name="lock"></ion-icon>
+                </ion-label>
+                <ion-input required minlength="8" formControlName="mpassword"  placeholder="Password" type="password"></ion-input>
+              </ion-item>
+              <p class="help-block" *ngIf=" mpassword.hasError('required') && mpassword.touched ">Password is required</p>
+            <p class="help-block" *ngIf=" mpassword.hasError('minlength') && mpassword.touched ">Password must be greater than 8 characters.</p>
+            </ion-card>
+
+            <ion-card class="text-space">
+              <ion-item>
+                <ion-label >
+                  <ion-icon class="icon-size" name="lock"></ion-icon>
+                </ion-label>
+
+                <ion-input required (input)="getCpass($event)" placeholder="Confirm Password" type="password" formControlName="confirm_pass"></ion-input>
+              </ion-item>
+              <p class="help-block" *ngIf=" confirm_pass.hasError('required') && confirm_pass.touched ">Confirm password is Required</p>
+              <p class="help-block" *ngIf="value">Passwords do not match</p>
+            </ion-card>
+
+          </ion-list>
+            <button class="sign-up_button button-full" ion-button color="dark" type="submit" (click)="register(formgroup.value)"  [disabled]="!formgroup.valid || value" expand="full">Sign Up</button>
+        </form>
+      </ion-card>
+        <ion-row class="fixed-con bottom-row">
+    <ion-col text-right>
+       <span class="t&c" (click)="onSignup()">Already have an Account</span>
+    </ion-col>
+    <ion-col text-left>
+      <span (click)="onTerm_condition()">Terms and Conditions</span>
+    </ion-col>
+  </ion-row>
+    </ion-col>
+  </ion-row>
+
+
+</ion-grid>
+</ion-content>
+

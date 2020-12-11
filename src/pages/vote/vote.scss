@@ -1,0 +1,118 @@
+page-vote {
+    hr {
+        background-color: #c8c8c8;
+        margin: 10px 0;
+    }
+    .text-middle {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .user-name{
+     ion-avatar {
+        min-width: 72px;
+        min-height: 72px;
+        img{
+          width:72px;
+          height: 72px;
+        }
+     }
+      .item {
+        padding: 0;
+        margin: auto;
+        flex-direction: column;
+        min-height: auto;
+        .label{
+          overflow: visible;
+          margin-bottom: 0;
+        }
+        .vote-img_center {
+          margin-bottom: 0 !important;
+      }
+      }
+      h2{
+        color: $linkColor;
+      }
+      .item-inner {
+        border: none !important;
+      }
+    }
+
+    [radio-group] .card {
+      border-radius: 50px;
+      border: 1px solid #c8c8c8;
+      box-shadow: none;
+      margin: 0 0 16px;
+      width: 100%;
+      .item-inner {
+        flex-direction: row-reverse;
+        .input-wrapper {
+          text-align: center;
+          text-indent: -44px;
+       }
+      }
+      .item-radio{
+        background-color: #f2f2f2;
+      }
+   }
+
+   form .card{
+    border-radius: 6px;
+    border: 1px solid #c8c8c8;
+    box-shadow: none;
+    margin: 0 0 16px;
+    width: 100%;
+   }
+   .button{
+     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+     height: 45px;
+     text-transform: uppercase;
+     border-radius: 50px;
+     font-size: 1.4rem;
+     font-weight: 700;
+   }
+  @media only screen and (min-height:730px){
+    hr {
+      margin: 20px 0;
+  }
+    textarea{
+      min-height: 145px;
+    }
+  }
+  .vote-text {
+    // white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.item-radio .radio {
+ 
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+// for scrolled on mobile
+
+    .scroll-content > .grid{
+      padding: 0;
+      .user-name {
+        margin: auto;
+      }
+    }
+    .grid.list-group{
+      padding: 0;
+      .row:last-child .card{
+        margin-bottom: 0;
+      }
+    }
+    .text-input{
+      font-size: 1.6rem;
+    }
+    .disputeimg{
+      //height: 30vh;
+      width: 100%;
+      height: auto !important;
+    min-height: inherit;
+    display: flex;
+    align-self: center;
+    }
+}

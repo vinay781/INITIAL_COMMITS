@@ -1,0 +1,126 @@
+page-statics {
+	p[margin-bottom] {
+    margin-top: 0;
+}
+	// pie chart 
+	.vote-section {
+		position:relative;
+		margin-bottom: 10px;
+		margin-top: -15px;
+		.vote-center {
+			    position: absolute;
+				text-align: center;
+				max-width: 80px;
+				left: 50%;
+				top: 50%;
+				margin-top:-40px;
+				margin-left:-40px;
+				height: 80px;
+			 h1 {
+				font-size: 1.4rem;
+				display: flex;
+				flex-direction: column;
+				align-self: center;
+				margin: 0;
+				height:100%;
+				justify-content: center;
+				p{
+					margin:0;
+				}
+				.percentage {
+				color:color($colors, success);
+				font-size: 1.75rem;
+               }
+			   .yes {
+				color:color($colors, success);
+				text-transform:capitalize;
+				font-weight: normal;
+               } 
+			}
+		}
+	}
+	
+	// prog_bar
+	.prog_bar{
+		text-align:center;
+		text-transform: capitalize;
+		.progress-outer {
+			margin: 0;
+			border: none;
+			border-radius: 0;
+			padding: 0;
+				.progress-inner {
+					border-radius: 0 !important;
+					padding: 0 2px;
+					font-size: 1.3rem;
+					min-width: 20%;
+				}
+	   }
+	}
+	
+	// comment-section
+	.comment-section {
+		color: #222;
+		.account-left_comment, [text-right], p{
+      color: #222;
+		}
+		.item-inner {
+			padding: 0 !important;
+			border: none !important;  
+		}
+ }
+	
+	// comment-description
+	.comment-description {
+		border-bottom: 1px solid #d4d4d4;
+		margin: -1px 0 16px;
+		&:last-child{
+			border-bottom: none;
+		}
+		.item {
+		  padding-left: 0;
+		  background-color: transparent;
+		  overflow: visible;
+		  .item-inner > ion-icon{
+			font-size: 1.6rem;
+			color: #000;
+			margin: 0 0 0 12px;
+			min-height: 1.75rem;
+			&::before{
+				font-size: 1.75rem;
+				margin-right: 5px; 
+				color: #999;
+			}
+		  }
+		}
+		ion-avatar{
+			margin: 0px 8px 0px 0 !important;
+			$avatarHeight: 40px;
+			    min-width: $avatarHeight;
+				min-height: $avatarHeight;
+				img{
+				  width: $avatarHeight;
+				  height: $avatarHeight;
+				  background-color: #fff;
+				}
+		}
+		.label {
+			color: #007aff;
+			h4{
+				font-weight: 600;
+			}
+		}
+		.comment {
+			padding-left: 48px;
+			margin: -10px 0 15px;
+		}
+	}
+
+	button[disabled] {
+    opacity: 1;
+    color: #000;
+	}
+	ion-icon{
+		font-size: 20px;
+	}
+} 

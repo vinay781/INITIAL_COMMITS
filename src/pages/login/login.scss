@@ -1,0 +1,136 @@
+page-login {
+	.scroll-content {
+		padding-bottom: 0px !important;
+		ion-grid {
+			// justify-content:flex-end;
+			justify-content: center;
+			height: 100%;
+		}
+
+	}
+	.fixed-con span {font-size: 16px;} 
+	.content {
+		background-color: color($colors, primary);
+		font-size: 16px;
+	}
+	.page-login {
+		background-color: #fbf4da;
+		width: 100%;
+		margin:0;
+		overflow: visible;
+		padding: 26px 10px 8px;
+		border-radius: 25px;
+		box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+		img {
+			max-width: 200px;
+			margin: 0 auto 5px;
+		}
+		.list .card {
+			// width: 100%;
+			// margin: 0 0 16px;
+			// border-radius: 50px;
+			// box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+			// height: 45px;
+			// position: relative;
+			// overflow: visible;
+			width: 100%;
+			margin: 0 0 16px;
+			border-radius: 50px;
+			box-shadow: none;
+			height: auto;
+			position: relative;
+			background-color: transparent;
+			overflow: visible;
+			.item {
+				border-radius: 50px;
+				border-radius: 50px;
+				box-shadow: none !important;
+				border: none;
+				.item-inner {
+					box-shadow: none !important;
+				}
+			}
+		}
+		.button {
+			height: 45px;
+			border-radius: 50px;
+			text-transform: capitalize;
+			font-weight: 300;
+			font-size: 16px;
+			letter-spacing: 0.5px;
+			width: 100%;
+		}
+	}
+	.radio-space {
+		text-align: center;
+		.label {
+			display: inline-block;
+			vertical-align: middle;
+			margin: 11px 0px 11px 8px;
+			 font-size: 2rem;
+		}
+		.radio {
+			display: inline-block;
+			vertical-align: middle;
+			&-md {
+				.radio-icon {
+					border-color: #222;
+					&.radio-checked {
+						background-color: #fff;
+					}
+				}
+			}
+			&-ios {
+				.radio-icon {
+					position: relative;
+					display: block;
+					width: 16px;
+					height: 16px;
+					border: 2px solid #222;
+					border-radius: 50%;
+					&.radio-checked {
+						background-color: #fff;
+						.radio-inner {
+							border: 0;
+							width: 8px;
+							height: 8px;
+							left: 2px;
+							border-radius: 50%;
+							background-color: #222;
+							top: 2px;
+						}
+					}
+				}
+			}
+		}
+	}
+	// fixed content
+		
+			
+			.fixed-con { 
+				    width: 100%;
+				    text-align: center;
+				    display: block;
+				    font-size: 12px;
+				    margin: 30px 0 20px; 
+				.col {
+					border-right: 1px solid #222;
+					padding: 0 10px;
+					min-height: inherit;
+					&:last-child {
+						border: none;
+					}
+				}
+			}
+	//  .top-row{
+  //   height: 90%;
+	// align-items: center; 
+  // } 
+
+  .bottom-row{ 
+	align-items: flex-end; 
+  }
+  input.text-input {
+		font-size: 2rem;
+}
+}

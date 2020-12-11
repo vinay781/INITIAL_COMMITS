@@ -1,0 +1,31 @@
+<!--
+  Generated template for the ImageModelPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>imageModel</ion-title>
+  </ion-navbar> 
+</ion-header>-->
+       
+<ion-content >
+    <ion-header no-border>
+      <ion-navbar transparent>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="closeModal()" style="background-color:#ffc833;">
+                <ion-icon item-right name="ios-close-outline" style="    font-size: 3.0em;"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    </ion-header>
+        <!-- <zoom-area [(controls)]="showControls" [(scale)]="scale" (afterZoomIn)="afterZoomIn($event)" (afterZoomOut)="afterZoomOut($event)">
+      <img [src]="img" (click)="imgtab()" />
+      </zoom-area> -->
+      <!-- https://www.npmjs.com/package/ngx-pinch-zoom  doc for below module-->
+      <pinch-zoom autoHeight="true"  >
+          <img [src]="img" height="100%" (load)="loaded = true" [ngClass]="{'img-loaded':loaded}" [hidden]="!loaded"  />
+          <ion-spinner name="bubbles" [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner>
+       </pinch-zoom>
+</ion-content>

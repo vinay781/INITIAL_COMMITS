@@ -1,0 +1,7 @@
+{
+  "name": "RezolveApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

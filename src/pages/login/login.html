@@ -1,0 +1,84 @@
+<ion-content padding color="primary">
+  <ion-grid>
+      <ion-row class="top-row">
+          <ion-col>
+  <form [formGroup]="formgroup" >
+    <ion-row>
+      <ion-col>
+        <ion-card class="page-login">
+          <img src="assets/logo.png">
+
+          <ion-list class="no-border">
+
+            <ion-card class="card-item">
+              <ion-item>
+                <ion-label class="icon-size">
+                  <ion-icon name="mail"></ion-icon>
+                </ion-label>
+                <ion-input required pattern="^[A-Za-z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" placeholder="Email" type="text"
+                           formControlName="emailcontroler"></ion-input>
+              </ion-item>
+              <p class="help-block" *ngIf=" emailcontroler.hasError('required') && emailcontroler.touched ">Email is
+                Required</p>
+              <p class="help-block" *ngIf=" emailcontroler.hasError('pattern') && emailcontroler.touched ">enter valid
+                Email </p>
+            </ion-card>
+            
+            <!-- <ion-card class="card-item">
+              <ion-item>
+                <ion-label class="icon-size">
+                  <ion-icon name="lock"></ion-icon>
+                </ion-label>
+                <ion-input required minlength="5" placeholder="Password" type="password"
+                           formControlName="passwordcontroler"></ion-input>
+              </ion-item>
+              <p class="help-block" *ngIf=" passwordcontroler.hasError('required') && passwordcontroler.touched ">Password
+                is Required</p>
+              <p class="help-block" *ngIf=" passwordcontroler.hasError('minlength') && passwordcontroler.touched ">
+                Password is greater than 5</p> 
+            </ion-card> -->
+            <ion-card class="card-item">
+              <ion-item>
+                <ion-label class="icon-size">
+                  <ion-icon name="lock"></ion-icon>
+                </ion-label>
+                <ion-input required  placeholder="Password" type="password"
+                           formControlName="passwordcontroler"></ion-input>
+              </ion-item>
+              <p class="help-block" *ngIf=" passwordcontroler.hasError('required') && passwordcontroler.touched ">Password
+                is Required</p>
+              <!-- <p class="help-block" *ngIf=" passwordcontroler.hasError('minlength') && passwordcontroler.touched ">
+                Password is greater than 5</p>  -->
+            </ion-card>
+
+          </ion-list>
+          <button ion-button class="signup-button" color="dark" type="submit" [disabled]="!formgroup.valid"
+                  (click)=" login(formgroup.value)" full>Sign In
+          </button>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row radio-group formControlName="formremember">
+      <ion-col class="radio-space" push="3">
+        <ion-radio class="radio-btn" type="radio" value= true   color="dark" *ngIf="isselect"  (click)="toggle()"></ion-radio>
+        <ion-radio class="radio-btn" type="radio" value= false  checked color="dark" *ngIf="!isselect"  (click)="toggle()"></ion-radio>
+        <ion-label>Remember me</ion-label>
+      </ion-col>
+    </ion-row> -->
+  </form>
+  <ion-row class="fixed-con bottom-row" justify-content-end>  
+    <ion-col>
+      <span (click)="onSignup()">Create an Account</span>
+    </ion-col>
+    <ion-col>
+      <span (click)="onForgot()">Forgot Password?</span>
+    </ion-col>
+  </ion-row>  
+  </ion-col>
+      </ion-row>
+   
+
+  
+</ion-grid>
+</ion-content>

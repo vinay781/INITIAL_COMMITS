@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>My Disputes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+   <ion-item no-lines>
+      <!-- <ion-label>Filter by category</ion-label> -->
+      <ion-select interface="popover"  role="combobox" placeholder="Filter by category"   (ionChange)="onCategorySelect($event);">
+        <ion-option *ngFor="let cate of category"  value="{{cate.name}}">{{cate.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+  
+  <ion-list>
+  <ion-item *ngFor="let data of disputes_data" (click)="goToStatics(data)">
+    <ion-avatar item-start>
+      <img [src]="data.photo==undefined || data.photo.length<=0 ? 'assets/imgs/profile-placeholder.png' : imgBaseurl+data.photo" alt=''>
+    </ion-avatar>
+    <ion-row>
+    <ion-col col-8 no-padding > 
+      <h2 style="padding-top:4px"><strong>{{data.title}} </strong></h2>
+    </ion-col>
+    <ion-col col-4 text-end text-right no-padding class="small-text">
+      <h3>{{ getTimePassed(data.time,data.date)}}</h3>
+    </ion-col>   
+    </ion-row>   
+       <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+    <p>{{data.description}}</p>
+  </ion-item>
+        
+</ion-list>
+</ion-content>

@@ -1,0 +1,79 @@
+<!--
+  Generated template for the ChangepassPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Change Password</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+
+      <ion-row>
+        <ion-col class="homeimage" >
+           <img src="assets/changepass.png"/>
+      </ion-col>
+      </ion-row>
+      
+      <ion-row>
+          <ion-col>
+            <h5 text-center> Change Password </h5>
+            <!-- <p text-center class="small">Create Your New Password Using From Below.</p> -->
+          </ion-col>
+      </ion-row>
+
+    <form [formGroup]="formgroup">
+       	
+      <ion-row>
+          <ion-col>
+            <div>
+             <ion-card>
+			      <ion-item>
+			        <ion-label>
+			          <ion-icon name="ios-unlock-outline"></ion-icon>
+			        </ion-label>
+			        <ion-input type="password" formControlName="oldpass"  placeholder="Current Password"></ion-input>
+			      </ion-item>
+    			</ion-card>
+
+    			  <ion-card>
+			      <ion-item>
+			        <ion-label>
+			          <ion-icon name="ios-unlock-outline"></ion-icon>
+			        </ion-label>
+			        <ion-input type="password" minlength="5" formControlName="newpass" placeholder="New Password"></ion-input>
+			      </ion-item>
+			     
+    			</ion-card>
+          <p class="help-block" style="text-align: right;" *ngIf=" newpass.hasError('required') && newpass.touched ">New Password is Required</p>
+          <p class="help-block ion-text-right" style="text-align: right;" *ngIf=" newpass.hasError('minlength') && newpass.touched ">
+              Password is greater than 5</p>
+
+    			  <ion-card>
+			      <ion-item>
+			        <ion-label>
+			          <ion-icon name="ios-unlock-outline"></ion-icon>
+			        </ion-label>
+			        <ion-input type="password" (input)="getCpass($event)" formControlName="cnewpass" placeholder="Confirm Password"></ion-input>
+			      </ion-item>
+			  		</ion-card>
+            <p class="help-block" style="text-align: right;" *ngIf=" cnewpass.hasError('required') && cnewpass.touched ">Confirm Password Is Required</p>
+            <p class="help-block" style="text-align: right;" *ngIf="value && !(cnewpass.hasError('required') && cnewpass.touched) ">Confirm Password not matched</p>
+            <button round class="sign-up_button button-full" ion-button color="primary" type="submit" (click)="changepassword(formgroup.value)"  [disabled]="!formgroup.valid|| value" expand="full">Submit</button>
+
+
+            </div>
+          </ion-col>
+      </ion-row>
+  </form>
+  
+  </ion-grid>
+ 
+</ion-content>

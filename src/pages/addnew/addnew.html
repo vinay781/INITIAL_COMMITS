@@ -1,0 +1,155 @@
+<!-- <ion-header *ngIf="pagehead">
+  <ion-navbar text-center>
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Post A Dispute</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+
+<ion-content>
+ 
+   <ion-navbar color="primary" ion-fixed >
+    <ion-icon name="arrow-back"  (click)="previosPage()"> Back</ion-icon>
+    <ion-title>Post a Dispute</ion-title>
+  </ion-navbar>
+  <ion-grid>
+
+    <form [formGroup]="formgroup">
+    <ion-row>
+    <ion-card class="input-tab2">
+      <ion-item no-lines>
+        <ion-label class="text"> </ion-label>
+        <ion-select  required formControlName="formCategory" role="presentation"  interface="popover" placeholder="Select Category">
+          <ion-option *ngFor="let cate of category"  value="{{cate.id}}">{{cate.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-card>
+    <p class="help-block" *ngIf=" formCategory.hasError('required') && formCategory.touched ">Category required</p>
+
+</ion-row>
+
+
+
+<ion-row>
+    <ion-card class="input-tab2" >
+      <ion-item no-lines>
+        <!-- <ion-label class="text" style="font-size:1.4rem" >Title</ion-label> -->
+        <ion-input class="placeholdercolor"  placeholder="Title" required type="text" formControlName="formTitle" autocorrect="on" autocomplete="on" 
+        spellcheck="true" ngModel></ion-input>
+      </ion-item>
+    </ion-card>
+    <p class="help-block" *ngIf=" formTitle.hasError('required') && formTitle.touched ">Title required</p>
+</ion-row>
+
+  
+    <ion-row>
+    <ion-card class="input-tab2" id='last'>
+       <ion-item no-lines>
+          <ion-textarea placeholder="Post your dispute in 150 words or less" maxlength="750" autocorrect="on" autocomplete="on" 
+          spellcheck="true"
+          formControlName="formDispute" ></ion-textarea>
+        </ion-item>
+    </ion-card>
+    <p class="help-block" *ngIf=" formDispute.hasError('required') && formDispute.touched ">Dispute required</p>
+    <p class="help-block" *ngIf=" formDispute.hasError('maxlength') && formDispute.touched ">Dispute length should be less than 150</p>
+
+</ion-row>
+<ion-row>
+  <ion-card class="input-tab2">
+    <ion-item no-lines>
+      <!-- <ion-label class="text" >Dispute Question</ion-label> -->
+      <ion-input class="placeholdercolor"  required type="text" placeholder="Dispute question" autocorrect="on" autocomplete="on" 
+      spellcheck="true" formControlName="formQuestion" ngModel></ion-input>
+     
+    </ion-item>
+  </ion-card>
+  <p class="help-block" *ngIf=" formQuestion.hasError('required') && formQuestion.touched ">Dispute Question required</p>
+</ion-row>
+<!-- <ion-row>
+    <ion-card class="input-tab2">
+      <ion-item no-lines>
+        <ion-label *ngIf="!currentName" class="text"  style="font-size: 1.9rem;">Attachment</ion-label>
+
+        <input style="display: none" type="file" (change)="onFileChanged($event)"  #fileInput>
+        <ion-icon item-end (click)="fileInput.click()" *ngIf="!document" name="md-add-circle"></ion-icon>
+      </ion-item>
+       <ion-list *ngIf="document">
+      <ion-item>
+        <ion-icon item-start name="ios-document-outline"></ion-icon>
+        <ion-label>{{filename}}</ion-label>
+        <ion-label>{{filesize}} kb</ion-label>
+        <ion-icon item-end name="ios-close-outline" (click)="cancelattechment()" ></ion-icon>
+      </ion-item>
+    </ion-list>
+    </ion-card>
+     <p class="help-block" *ngIf="attechmenterror">{{attechmenterror}}</p>
+  </ion-row> -->
+  <ion-row>
+    <ion-card class="input-tab2">
+      <ion-item no-lines>
+        <ion-label  class="text"  style="font-size: 1.9rem;">Attachment</ion-label>
+
+        <ion-icon item-end (click)="selectImage()" name="md-add-circle"></ion-icon>
+      </ion-item>
+        <ion-item *ngIf="newFileName">
+        <ion-icon item-start name="ios-document-outline"></ion-icon>
+        <ion-label>{{newFileName}}</ion-label>
+        <ion-icon item-end name="ios-close-outline" (click)="cancelattechment()" ></ion-icon>
+         </ion-item>
+    </ion-card>
+     <p class="help-block" *ngIf="attechmenterror">{{attechmenterror}}</p>
+  </ion-row>
+  <ion-row>
+    <ion-card>
+      <ion-list   >
+         <!--  <ion-list-header> -->
+              <ion-item no-lines>          
+              <ion-checkbox  formControlName="post_type"  > </ion-checkbox>
+
+            <ion-label class="text" style="font-size: 1.9rem;"> Post anonymously? </ion-label>
+           </ion-item>
+         <!--  </ion-list-header> -->
+
+      <!--   <ion-item no-lines>
+        <ion-label>
+           Post anonymously?
+        </ion-label>
+        <ion-toggle  name="notify" color="success"></ion-toggle>
+      </ion-item> -->
+
+<!-- 
+          <ion-item no-lines>
+            <ion-label>Yes</ion-label>
+            <ion-radio class="radio-margin" item-left  value="true" ></ion-radio>
+          </ion-item>
+
+          <ion-item no-lines>
+            <ion-label>No</ion-label>
+            <ion-radio class="radio-margin"  item-left value="false"  checked></ion-radio>
+          </ion-item> -->
+        <!-- <ion-grid>
+        <ion-row><ion-col>
+          <ion-radio class="radio-margin" item-left  value="true" ></ion-radio>Yes
+            </ion-col>
+
+            <ion-col>
+              <ion-radio class="radio-margin"  item-left value="false"  checked></ion-radio>No
+            </ion-col>
+          </ion-row> 
+    </ion-grid> -->
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+<ion-row>
+    <ion-card class="no-background">
+      <button full ion-button color="dark" type="submit" (click)="postdispute(formgroup.value)" [disabled]="!formgroup.valid || attechmenterror">Submit</button>
+    </ion-card>
+</ion-row>
+  </form>
+
+</ion-grid>
+
+</ion-content>

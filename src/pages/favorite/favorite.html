@@ -1,0 +1,66 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Favorites</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+ 
+  
+
+  <ion-card class="main-card"  *ngFor="let data of disputes_data">
+    <ion-row>
+      <ion-col>
+        <ion-item (click)="goToStatics(data)" class="tab1" no-lines no-padding>
+          <ion-avatar item-start no-padding no-margin>
+            <img [src]="data.userphoto==undefined || data.userphoto.length<=0 ? 'assets/imgs/profile-placeholder.png' : imgBaseurl+data.userphoto">
+          </ion-avatar>
+          <ion-label class="subtitle" col-sm-9><h5>{{data.username}}</h5>
+          </ion-label>
+          <ion-label end text-right><strong>{{data.votes}}</strong> Votes</ion-label>
+          <ion-label end text-right><strong>{{data.comments}}</strong> Comments</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col col-12 push-2>
+        <ion-item no-lines no-padding no-margin class="card-heading">
+          <ion-card-title class="left-heading" no-margin>{{data.title}}</ion-card-title>
+          <p class="category" end><span>{{data.category}}</span></p>
+        </ion-item>
+
+        <ion-card-content  (click)="goToStatics(data)" margin-bottom no-padding no-margin>
+          <p class="main_p">{{data.description}}</p>
+        </ion-card-content>
+        <img class="img-right" *ngIf="data.file" [src]="attechmentBaseUrl+data.file" alt='' />
+
+      </ion-col>
+      <!-- card footer -->
+      <ion-row class="card-footer">
+        
+        <ion-col align-self-center text-center>
+          <button ion-button icon-start transparent clear small (click)="removetofavorite(data.disputeid)">        
+            <ion-icon name="heart" color="like"></ion-icon>
+          Favorite
+          </button>
+        </ion-col>
+        <ion-col align-self-center text-center>
+          <button class="card-footer-button" ion-button icon-start  clear small transparent (click)="showWorkingAlert()">
+            <ion-icon name="md-share"></ion-icon>
+            Share
+          </button>
+
+        </ion-col>
+        <ion-col align-self-center text-center>
+          <ion-note class="hour">
+            <ion-icon name="md-clock"></ion-icon>
+            {{getTimePassed(data.time)}}
+          </ion-note>
+        </ion-col>
+
+      </ion-row>
+    </ion-row>
+
+  </ion-card>
+  <h1 text-center padding-top >{{message}}</h1>
+</ion-content>

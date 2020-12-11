@@ -1,0 +1,60 @@
+<!--
+  Generated template for the PostsubmitedPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>Dispute Submitted</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content padding>
+    <!-- <ion-header>
+        <ion-navbar>
+          <ion-title>Dispute Submitted</ion-title>
+        </ion-navbar>
+     </ion-header> -->
+     <ion-navbar  color="primary"  ion-fixed  hideBackButton  >
+
+        <ion-icon  name="arrow-back"  text-left  float-left  (click)="previosPage()"  style="font-size: 1.3em;"> Back</ion-icon>
+      
+        <ion-title> Dispute Submitted</ion-title>
+      
+        </ion-navbar>
+ <div class="user-name" style="margin:30px">
+        <ion-item>
+        <ion-avatar class="vote-img_center" item-start>
+          <img class="user-image" [src]="dispute_data.photo==undefined || dispute_data.photo.length<=0 ? 'assets/imgs/profile-placeholder.png' : imgBaseurl+dispute_data.photo">
+        </ion-avatar>
+        <!-- <h2>{{dispute_data.username}}</h2> -->
+        </ion-item>
+      </div>
+      <!-- <ion-label text-center><h5>Dispute Submitted</h5></ion-label> -->
+      <ion-label margin-top class="vote-heading"><h2> {{dispute_data.title}}</h2></ion-label>
+      <!-- <img [src]="attechmentBaseUrl+dispute_data.file" alt="" onerror="this.onerror=null;this.src='';"> -->
+      <div class="vote-text" text-justify>
+        <span>{{dispute_data.description}}</span>
+      </div>
+   
+
+      <ion-grid>     
+            
+      <ion-row>
+          <ion-col>
+            <div class="button-group">
+                <button ion-button block (click)="mydisputepage()">MY DISPUTES</button>
+                <button ion-button block (click)="addNewpage()">POST A DISPUTE</button>
+                <button ion-button block (click)="Rezolvepage()">REZOLVE A DISPUTE</button>
+            </div>
+          </ion-col>
+      </ion-row>
+  
+  </ion-grid>
+
+
+</ion-content>

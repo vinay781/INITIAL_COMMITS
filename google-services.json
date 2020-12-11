@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "400136422541",
+    "firebase_url": "https://ionicrezolve.firebaseio.com",
+    "project_id": "ionicrezolve",
+    "storage_bucket": "ionicrezolve.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400136422541:android:11430d1f0f2fa594",
+        "android_client_info": {
+          "package_name": "io.rezolve"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400136422541-765tu0cgikmtroidnsr8q8c462rjgcql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv05DJJSVsgbeJk4uzX9EHj-7jtOPCWig"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
